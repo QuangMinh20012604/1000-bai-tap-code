@@ -21,10 +21,12 @@ int main()
 
 	if(a == 0 && b == 0)	printf("Phuong trinh co vo so nghiem.");
 	else if(a == 0 && b != 0)	printf("Phuong trinh vo nghiem.");
-	else
+	else 
 	{
-		x = (float) -b / a;
-		printf("Phuong trinh co nghiem la x = %4lf", x);
+		
+		if( b == 0)	x = 0;
+		else x = -b / a;
+		printf("Phuong trinh co nghiem la %lf.", x);
 	}
 
 	getch();
@@ -58,9 +60,11 @@ void PTB1(double a, double b)
 
 	if(a == 0 && b == 0)	printf("Phuong trinh co vo so nghiem.");
 	else if(a == 0 && b != 0)	printf("Phuong trinh vo nghiem.");
-	else
+	else 
 	{
-		x = (float) (-b / a);
-		printf("Phuong trinh co nghiem la x = %4lf", x);
+		
+		if( b == 0)	x = 0;
+		else x = -b / a;
+		printf("Phuong trinh co nghiem la %lf.", x);
 	}
 }
