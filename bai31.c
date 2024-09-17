@@ -33,7 +33,7 @@ int main()
 	/*
 	for(i; i < N; i++)
 	{
-		f(N % i == 0)
+		if(N % i == 0)
 		{
 			n++;
 		}
