@@ -3,9 +3,8 @@
 #include<math.h>
 
 
-//(*) Cho mảng số thực có nhiều hơn hai giá trị và các giá trị trong mảng
-//khác nhau từng đôi một. Hãy viết hàm liệt kê tất cả các cặp giá trị (a,b)
-//trong mảng thỏa điều kiện a <= b
+//Hãy liệt kê các giá trị trong mảng mà thỏa điều kiện lớn hơn trị tuyệt
+//đối của giá trị đứng liền sau nó
 
 
 //khong sai ham
@@ -42,12 +41,15 @@ int main()
 	}
 
 
-	printf("\n");
+	printf("\n\nCac so thoa man dieu kien lon hon tri tuyet doi cua gia tri dung lien sau no la: \n\n");
 	
 	//Xu ly de
 	
-	
-
+	for(int i = 0; i < N; i++)
+	{
+		if(a[i] > abs(a[i+1]))
+			printf("%0.3f   ", a[i]);
+	}
 
 	_getch();
 	return 0;
@@ -64,17 +66,17 @@ float a[MAX];
 
 void nhap();
 void xuat();
-void lietkecap();
+void SoThoaManDieuKien();
 
 int main()
 {
 	nhap();
 	xuat();
 
-	printf("\n");
+	printf("\n\nCac so thoa man dieu kien lon hon tri tuyet doi cua gia tri dung lien sau no la: \n\n");
 
 	//Xu ly de
-	lietkecap();
+	SoThoaManDieuKien();
 
 	_getch();
 	return 0;
@@ -108,23 +110,12 @@ void xuat()
 		printf("%0.3f  ", a[i]);
 	}
 }
-
-void lietkecap()
+void SoThoaManDieuKien()
 {
 	for(int i = 0; i < N; i++)
 	{
-		for(int j = i +1; j < N; j++)
-		{
-			if(a[i] < a[j])
-			{
-				printf("\n(%0.3f; %0.3f)", a[i], a[j]);
-			}
-			else if(a[i] > a[j])
-			{
-				printf("\n(%0.3f; %0.3f)", a[j], a[i]);
-			}
-		}
-		printf("\n");
+		if(a[i] > abs(a[i+1]))
+			printf("%0.3f   ", a[i]);
 	}
 }
 //
@@ -133,22 +124,22 @@ void lietkecap()
 //Test o visual
 #define MAX 100
 
-void nhap(float a[], int& N);
+int N;
+float a[MAX];
+
+void nhap(float a[], int &N);
 void xuat(float a[], int N);
-void lietkecap(float a[], int N);
+void SoThoaManDieuKien(float a[], int N);
 
 int main()
 {
-	int N;
-	float a[MAX];
-
-	nhap(a,N);
+	nhap(a, N);
 	xuat(a, N);
 
-	printf("\n");
+	printf("\n\nCac so thoa man dieu kien lon hon tri tuyet doi cua gia tri dung lien sau no la: \n\n");
 
 	//Xu ly de
-	lietkecap(a, N);
+	SoThoaManDieuKien(a, N);
 
 	_getch();
 	return 0;
@@ -182,23 +173,12 @@ void xuat(float a[], int N)
 		printf("%0.3f  ", a[i]);
 	}
 }
-
-void lietkecap(float a[], int N)
+void SoThoaManDieuKien(float a[], int N)
 {
 	for (int i = 0; i < N; i++)
 	{
-		for (int j = i + 1; j < N; j++)
-		{
-			if (a[i] < a[j])
-			{
-				printf("\n(%0.3f; %0.3f)", a[i], a[j]);
-			}
-			else if (a[i] > a[j])
-			{
-				printf("\n(%0.3f; %0.3f)", a[j], a[i]);
-			}
-		}
-		printf("\n");
+		if (a[i] > abs(a[i + 1]))
+			printf("%0.3f   ", a[i]);
 	}
 }
 */
