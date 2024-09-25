@@ -62,6 +62,7 @@ int N, a[MAX];
 
 void nhap();
 void xuat();
+void SoThoaManDieuKien();
 
 int main()
 {
@@ -71,6 +72,7 @@ int main()
 	printf("\n");
 
 	//Xu ly de
+	SoThoaManDieuKien();
 
 	_getch();
 	return 0;
@@ -104,6 +106,10 @@ void xuat()
 		printf("%d  ", a[i]);
 	}
 }
+void SoThoaManDieuKien()
+{
+	
+}
 */
 
 /*
@@ -114,7 +120,7 @@ void nhap(float a[], int& N);
 
 void xuat(float a[], int N);
 
-void at(float a[], int N);
+void SoThoaManDieuKien(float a[], int N);
 
 int main()
 {
@@ -127,7 +133,7 @@ int main()
 	printf("\n");
 
 	//Xu ly de
-	at(a, N);
+	SoThoaManDieuKien();
 
 	_getch();
 	return 0;
@@ -162,7 +168,7 @@ void xuat(float a[], int N)
 	}
 }
 
-void at(float a[], int N)
+void SoThoaManDieuKien()
 {
 
 }

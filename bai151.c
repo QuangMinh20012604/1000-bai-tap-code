@@ -48,7 +48,7 @@ int main()
 	//Tìm số nguyên tố đầu tiên
 	for(int i = 0; i < N; i++)
 	{
-		if(a[i] > 2)	//vi neu so nguyen tố đầu tiên > 2 thì không cần xét bằng 2 nữa. Còn nếu số nguyên tố đầu tiên = 2 thì sẽ tìm xem có số ngto nào lơn hon nó hay không
+		if(a[i] >= 2)	//vi neu so nguyen tố đầu tiên > 2 thì không cần xét bằng 2 nữa. Còn nếu số nguyên tố đầu tiên = 2 thì sẽ tìm xem có số ngto nào lơn hon nó hay không
 		{
 			if(a[i] == 2)
 			{
@@ -161,7 +161,7 @@ void SoNguyenToLonNhat()
 	//Tìm số nguyên tố đầu tiên
 	for(int i = 0; i < N; i++)
 	{
-		if(a[i] > 2)	//vi neu so nguyen tố đầu tiên > 2 thì không cần xét bằng 2 nữa. Còn nếu số nguyên tố đầu tiên = 2 thì sẽ tìm xem có số ngto nào lơn hon nó hay không
+		if(a[i] >= 2)	//vi neu so nguyen tố đầu tiên > 2 thì không cần xét bằng 2 nữa. Còn nếu số nguyên tố đầu tiên = 2 thì sẽ tìm xem có số ngto nào lơn hon nó hay không
 		{
 			if(a[i] == 2)
 			{
@@ -278,7 +278,7 @@ int SoNguyenToLonNhat(int a[], int N)
 	//Tìm số nguyên tố đầu tiên
 	for (int i = 0; i < N; i++)
 	{
-		if (a[i] > 2)	//vi neu so nguyen tố đầu tiên > 2 thì không cần xét bằng 2 nữa. Còn nếu số nguyên tố đầu tiên = 2 thì sẽ tìm xem có số ngto nào lơn hon nó hay không
+		if (a[i] >= 2)	//vi neu so nguyen tố đầu tiên > 2 thì không cần xét bằng 2 nữa. Còn nếu số nguyên tố đầu tiên = 2 thì sẽ tìm xem có số ngto nào lơn hon nó hay không
 		{
 			if (a[i] == 2)
 			{
