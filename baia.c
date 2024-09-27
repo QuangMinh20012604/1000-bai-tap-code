@@ -62,7 +62,7 @@ int N, a[MAX];
 
 void nhap();
 void xuat();
-void SoThoaManDieuKien();
+void Xuly();
 
 int main()
 {
@@ -72,7 +72,7 @@ int main()
 	printf("\n");
 
 	//Xu ly de
-	SoThoaManDieuKien();
+	Xuly();
 
 	_getch();
 	return 0;
@@ -106,7 +106,7 @@ void xuat()
 		printf("%d  ", a[i]);
 	}
 }
-void SoThoaManDieuKien()
+void Xuly()
 {
 	
 }
@@ -116,16 +116,15 @@ void SoThoaManDieuKien()
 //Test o visual
 #define MAX 100
 
-void nhap(float a[], int& N);
+void nhap(int a[], int& N);
 
-void xuat(float a[], int N);
+void xuat(int a[], int N);
 
-void SoThoaManDieuKien(float a[], int N);
+void Xuly(int a[], int N);
 
 int main()
 {
-	int N;
-	float a[MAX];
+	int N, a[MAX];
 	
 	nhap(a, N);
 	xuat(a, N);
@@ -133,7 +132,7 @@ int main()
 	printf("\n");
 
 	//Xu ly de
-	SoThoaManDieuKien();
+	Xuly();
 
 	_getch();
 	return 0;
@@ -154,7 +153,7 @@ void nhap(float a[], int& N)
 	for (int i = 0; i < N; i++)
 	{
 		printf("Nhap a[%d]: ", i);
-		scanf_s("%f", &a[i]);
+		scanf_s("%d", &a[i]);
 	}
 }
 
@@ -164,15 +163,14 @@ void xuat(float a[], int N)
 	printf("\n");
 	for (int i = 0; i < N; i++)
 	{
-		printf("%0.3f  ", a[i]);
+		printf("%d  ", a[i]);
 	}
 }
 
-void SoThoaManDieuKien()
+void Xuly()
 {
 
 }
-
 */
 
 
