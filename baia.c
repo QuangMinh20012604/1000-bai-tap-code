@@ -132,13 +132,13 @@ int main()
 	printf("\n");
 
 	//Xu ly de
-	Xuly();
+	Xuly(a, N);
 
 	_getch();
 	return 0;
 }
 
-void nhap(float a[], int& N)
+void nhap(int a[], int& N)
 {
 	//So phan tu mang
 	do
@@ -157,7 +157,7 @@ void nhap(float a[], int& N)
 	}
 }
 
-void xuat(float a[], int N)
+void xuat(int a[], int N)
 {
 	//In mang
 	printf("\n");
@@ -167,7 +167,7 @@ void xuat(float a[], int N)
 	}
 }
 
-void Xuly()
+void Xuly(int a[], int N)
 {
 
 }
