@@ -1,10 +1,11 @@
 #include<stdio.h>
+#include<stdio.h>
 #include<conio.h>
 #include<math.h>
 
 
-//Tính tổng các giá trị chính phương trong mảng một chiều các số
-// nguyên (tongchinhphuong)
+//Đếm số lần xuất hiện của giá trị x trong mảng một chiều các số thực
+// (tanxuat)
 
 
 //khong sai ham
@@ -14,7 +15,8 @@
 
 int main()
 {
-	int N, a[MAX];
+	int N;
+	float a[MAX], x;
 
 	//So phan tu mang
 	do
@@ -29,36 +31,37 @@ int main()
 	for(int i = 0; i < N; i++)
 	{
 		printf("Nhap a[%d]: ", i);
-		scanf_s("%d", &a[i]);
+		scanf_s("%f", &a[i]);
 	}
+
+	printf("\nNhap x: ");
+	scanf_s("%f", &x);
 
 	//In mang
 	printf("\n");
+
 	for (int i = 0; i < N; i++)
 	{
-		printf("%d  ", a[i]);
+		printf("%0.3f  ", a[i]);
 	}
 
-
-	printf("\nCac gia tri chinh phuong trong mang la:\n");
+	printf("\n");
 	
 	//Xu ly de
-	int S = 0;
+	int tanxuat = 0;
 
 	for(int i = 0; i < N; i++)
 	{
-		if(sqrt((float) a[i]) == (int)sqrt((float) a[i]))
+		if(a[i] == x)
 		{
-			S += a[i];
-			printf("%d  ", a[i]);
+			tanxuat++;
 		}
 	}
 
-	printf("\nTong cac gia tri chinh phuong trong mang la: S = %d.\n", S);
+	printf("\n\nSo lan xuat hien cua gia tri %0.3f trong mang la: %d.", x, tanxuat);
 
 	_getch();
 	return 0;
-}
 */
 
 //sai ham
@@ -66,7 +69,8 @@ int main()
 //
 #define MAX 100
 
-int N, a[MAX];
+int N;
+float a[MAX], x;
 
 void nhap();
 void xuat();
@@ -77,7 +81,7 @@ int main()
 	nhap();
 	xuat();
 
-	printf("\nCac gia tri chinh phuong trong mang la:\n");
+	printf("\n");
 
 	//Xu ly de
 	Xuly();
@@ -101,8 +105,11 @@ void nhap()
 	for(int i = 0; i < N; i++)
 	{
 		printf("Nhap a[%d]: ", i);
-		scanf_s("%d", &a[i]);
+		scanf_s("%f", &a[i]);
 	}
+
+	printf("\nNhap x: ");
+	scanf_s("%f", &x);
 }
 
 void xuat()
@@ -111,23 +118,22 @@ void xuat()
 	printf("\n");
 	for (int i = 0; i < N; i++)
 	{
-		printf("%d  ", a[i]);
+		printf("%0.3f  ", a[i]);
 	}
 }
 void Xuly()
 {
-	int S = 0;
-	
+	int tanxuat = 0;
+
 	for(int i = 0; i < N; i++)
 	{
-		if(sqrt((float) a[i]) == (int)sqrt((float) a[i]))
+		if(a[i] == x)
 		{
-			S += a[i];
-			printf("%d  ", a[i]);
+			tanxuat++;
 		}
 	}
 
-	printf("\nTong cac gia tri chinh phuong trong mang la: S = %d.\n", S);
+	printf("\n\nSo lan xuat hien cua gia tri %0.3f trong mang la: %d.", x, tanxuat);
 }
 //
 
@@ -135,23 +141,24 @@ void Xuly()
 //Test o visual
 #define MAX 100
 
-void nhap(int a[], int& N);
+void nhap(float a[], int& N);
 
-void xuat(int a[], int N);
+void xuat(float a[], int N);
 
-void Xuly(int a[], int N);
+void Xuly(float a[], int N);
 
 int main()
 {
-	int N, a[MAX];
+	int N;
+	float a[MAX], x;
 	
 	nhap(a, N);
 	xuat(a, N);
 
-	printf("\nCac gia tri chinh phuong trong mang la:\n");
+	printf("\n");
 
 	//Xu ly de
-	Xuly(a, N);
+	Xuly();
 
 	_getch();
 	return 0;
@@ -172,8 +179,11 @@ void nhap(float a[], int& N)
 	for (int i = 0; i < N; i++)
 	{
 		printf("Nhap a[%d]: ", i);
-		scanf_s("%d", &a[i]);
+		scanf_s("%f", &a[i]);
 	}
+
+	printf("\nNhap x: ");
+	scanf_s("%f", &x);
 }
 
 void xuat(float a[], int N)
@@ -182,23 +192,22 @@ void xuat(float a[], int N)
 	printf("\n");
 	for (int i = 0; i < N; i++)
 	{
-		printf("%d  ", a[i]);
+		printf("%0.3f  ", a[i]);
 	}
 }
 
-void Xuly(float a[], int N)
+void Xuly()
 {
-	int S = 0;
-	
+	int tanxuat = 0;
+
 	for(int i = 0; i < N; i++)
 	{
-		if(sqrt((float) a[i]) == (int)sqrt((float) a[i]))
+		if(a[i] == x)
 		{
-			S += a[i];
-			printf("%d  ", a[i]);
+			tanxuat++;
 		}
 	}
 
-	printf("\nTong cac gia tri chinh phuong trong mang la: S = %d.\n", S);
+	printf("\n\nSo lan xuat hien cua gia tri %0.3f trong mang la: %d.", x, tanxuat);
 }
 */

@@ -1,10 +1,11 @@
 #include<stdio.h>
+#include<stdio.h>
 #include<conio.h>
 #include<math.h>
 
 
-//Tính tổng các giá trị chính phương trong mảng một chiều các số
-// nguyên (tongchinhphuong)
+//Tính trung bình nhân các giá trị dương có trong mảng một chiều các số
+// thực (trungbinhnhan)
 
 
 //khong sai ham
@@ -14,7 +15,8 @@
 
 int main()
 {
-	int N, a[MAX];
+	int N;
+	float a[MAX];
 
 	//So phan tu mang
 	do
@@ -29,32 +31,44 @@ int main()
 	for(int i = 0; i < N; i++)
 	{
 		printf("Nhap a[%d]: ", i);
-		scanf_s("%d", &a[i]);
+		scanf_s("%f", &a[i]);
 	}
 
 	//In mang
 	printf("\n");
 	for (int i = 0; i < N; i++)
 	{
-		printf("%d  ", a[i]);
+		printf("%0.3f  ", a[i]);
 	}
 
 
-	printf("\nCac gia tri chinh phuong trong mang la:\n");
+	printf("\nCac gia tri duong co trong mang:\n");
 	
 	//Xu ly de
-	int S = 0;
+	float T = 1, trungbinhnhan;
+	int count = 0;
 
 	for(int i = 0; i < N; i++)
 	{
-		if(sqrt((float) a[i]) == (int)sqrt((float) a[i]))
+		if(a[i] > 0)
 		{
-			S += a[i];
-			printf("%d  ", a[i]);
+			count++;
+			T *= a[i];
+			printf("%0.3f  ", a[i]);
 		}
 	}
 
-	printf("\nTong cac gia tri chinh phuong trong mang la: S = %d.\n", S);
+	printf("\n\nTich cac gia tri duong co trong mang la: %0.3f", T);
+
+	if(count == 0)
+	{
+		trungbinhnhan = 0;
+	}
+	else
+	{
+		trungbinhnhan = T / count;
+	}
+	printf("\n\nTrung binh nhan cac gia tri duong co trong mang la: %0.3f.", trungbinhnhan);
 
 	_getch();
 	return 0;
@@ -66,7 +80,8 @@ int main()
 //
 #define MAX 100
 
-int N, a[MAX];
+int N;
+float a[MAX];
 
 void nhap();
 void xuat();
@@ -77,7 +92,7 @@ int main()
 	nhap();
 	xuat();
 
-	printf("\nCac gia tri chinh phuong trong mang la:\n");
+	printf("\nCac gia tri duong co trong mang:\n");
 
 	//Xu ly de
 	Xuly();
@@ -101,7 +116,7 @@ void nhap()
 	for(int i = 0; i < N; i++)
 	{
 		printf("Nhap a[%d]: ", i);
-		scanf_s("%d", &a[i]);
+		scanf_s("%f", &a[i]);
 	}
 }
 
@@ -111,23 +126,35 @@ void xuat()
 	printf("\n");
 	for (int i = 0; i < N; i++)
 	{
-		printf("%d  ", a[i]);
+		printf("%0.3f  ", a[i]);
 	}
 }
 void Xuly()
 {
-	int S = 0;
-	
+	float T = 1, trungbinhnhan;
+	int count = 0;
+
 	for(int i = 0; i < N; i++)
 	{
-		if(sqrt((float) a[i]) == (int)sqrt((float) a[i]))
+		if(a[i] > 0)
 		{
-			S += a[i];
-			printf("%d  ", a[i]);
+			count++;
+			T *= a[i];
+			printf("%0.3f  ", a[i]);
 		}
 	}
 
-	printf("\nTong cac gia tri chinh phuong trong mang la: S = %d.\n", S);
+	printf("\n\nTich cac gia tri duong co trong mang la: %0.3f", T);
+
+	if(count == 0)
+	{
+		trungbinhnhan = 0;
+	}
+	else
+	{
+		trungbinhnhan = T / count;
+	}
+	printf("\n\nTrung binh nhan cac gia tri duong co trong mang la: %0.3f.", trungbinhnhan);
 }
 //
 
@@ -135,11 +162,11 @@ void Xuly()
 //Test o visual
 #define MAX 100
 
-void nhap(int a[], int& N);
+void nhap(float a[], int& N);
 
-void xuat(int a[], int N);
+void xuat(float a[], int N);
 
-void Xuly(int a[], int N);
+void Xuly(float a[], int N);
 
 int main()
 {
@@ -148,7 +175,7 @@ int main()
 	nhap(a, N);
 	xuat(a, N);
 
-	printf("\nCac gia tri chinh phuong trong mang la:\n");
+	printf("\nCac gia tri duong co trong mang:\n");
 
 	//Xu ly de
 	Xuly(a, N);
@@ -172,7 +199,7 @@ void nhap(float a[], int& N)
 	for (int i = 0; i < N; i++)
 	{
 		printf("Nhap a[%d]: ", i);
-		scanf_s("%d", &a[i]);
+		scanf_s("%f", &a[i]);
 	}
 }
 
@@ -182,23 +209,35 @@ void xuat(float a[], int N)
 	printf("\n");
 	for (int i = 0; i < N; i++)
 	{
-		printf("%d  ", a[i]);
+		printf("%0.3f  ", a[i]);
 	}
 }
 
 void Xuly(float a[], int N)
 {
-	int S = 0;
-	
+	float T = 1, trungbinhnhan;
+	int count = 0;
+
 	for(int i = 0; i < N; i++)
 	{
-		if(sqrt((float) a[i]) == (int)sqrt((float) a[i]))
+		if(a[i] > 0)
 		{
-			S += a[i];
-			printf("%d  ", a[i]);
+			count++;
+			T *= a[i];
+			printf("%0.3f  ", a[i]);
 		}
 	}
 
-	printf("\nTong cac gia tri chinh phuong trong mang la: S = %d.\n", S);
+	printf("\n\nTich cac gia tri duong co trong mang la: %0.3f", T);
+
+	if(count == 0)
+	{
+		trungbinhnhan = 0;
+	}
+	else
+	{
+		trungbinhnhan = T / count;
+	}
+	printf("\n\nTrung binh nhan cac gia tri duong co trong mang la: %0.3f.", trungbinhnhan);
 }
 */

@@ -1,10 +1,11 @@
 #include<stdio.h>
+#include<stdio.h>
 #include<conio.h>
 #include<math.h>
 
 
-//Tính tổng các giá trị chính phương trong mảng một chiều các số
-// nguyên (tongchinhphuong)
+//Đếm số lượng số chẵn có trong mảng một chiều các số nguyên
+// (demchan).
 
 
 //khong sai ham
@@ -40,21 +41,20 @@ int main()
 	}
 
 
-	printf("\nCac gia tri chinh phuong trong mang la:\n");
+	printf("\n");
 	
 	//Xu ly de
-	int S = 0;
+	int demchan = 0;
 
 	for(int i = 0; i < N; i++)
 	{
-		if(sqrt((float) a[i]) == (int)sqrt((float) a[i]))
+		if(a[i] % 2 == 0)
 		{
-			S += a[i];
-			printf("%d  ", a[i]);
+			demchan++;
 		}
 	}
 
-	printf("\nTong cac gia tri chinh phuong trong mang la: S = %d.\n", S);
+	printf("So luong so chan co trong mang la: %d.", demchan);
 
 	_getch();
 	return 0;
@@ -77,7 +77,7 @@ int main()
 	nhap();
 	xuat();
 
-	printf("\nCac gia tri chinh phuong trong mang la:\n");
+	printf("\n");
 
 	//Xu ly de
 	Xuly();
@@ -116,18 +116,17 @@ void xuat()
 }
 void Xuly()
 {
-	int S = 0;
-	
+	int demchan = 0;
+
 	for(int i = 0; i < N; i++)
 	{
-		if(sqrt((float) a[i]) == (int)sqrt((float) a[i]))
+		if(a[i] % 2 == 0)
 		{
-			S += a[i];
-			printf("%d  ", a[i]);
+			demchan++;
 		}
 	}
 
-	printf("\nTong cac gia tri chinh phuong trong mang la: S = %d.\n", S);
+	printf("So luong so chan co trong mang la: %d.", demchan);
 }
 //
 
@@ -148,16 +147,16 @@ int main()
 	nhap(a, N);
 	xuat(a, N);
 
-	printf("\nCac gia tri chinh phuong trong mang la:\n");
+	printf("\n");
 
 	//Xu ly de
-	Xuly(a, N);
+	Xuly();
 
 	_getch();
 	return 0;
 }
 
-void nhap(float a[], int& N)
+void nhap(int a[], int& N)
 {
 	//So phan tu mang
 	do
@@ -176,7 +175,7 @@ void nhap(float a[], int& N)
 	}
 }
 
-void xuat(float a[], int N)
+void xuat(int a[], int N)
 {
 	//In mang
 	printf("\n");
@@ -186,19 +185,18 @@ void xuat(float a[], int N)
 	}
 }
 
-void Xuly(float a[], int N)
+void Xuly(int a[], int N)
 {
-	int S = 0;
-	
+	int demchan = 0;
+
 	for(int i = 0; i < N; i++)
 	{
-		if(sqrt((float) a[i]) == (int)sqrt((float) a[i]))
+		if(a[i] % 2 == 0)
 		{
-			S += a[i];
-			printf("%d  ", a[i]);
+			demchan++;
 		}
 	}
 
-	printf("\nTong cac gia tri chinh phuong trong mang la: S = %d.\n", S);
+	printf("So luong so chan co trong mang la: %d.", demchan);
 }
 */

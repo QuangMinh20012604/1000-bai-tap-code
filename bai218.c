@@ -1,15 +1,16 @@
 #include<stdio.h>
+#include<stdio.h>
 #include<conio.h>
 #include<math.h>
 
 
-//Tính tổng các giá trị chính phương trong mảng một chiều các số
-// nguyên (tongchinhphuong)
+//Đếm số lượng giá trị đối xứng trong mảng các số nguyên
+// (demdoixung).
 
 
 //khong sai ham
 
-/*
+//
 #define MAX 100
 
 int main()
@@ -40,30 +41,37 @@ int main()
 	}
 
 
-	printf("\nCac gia tri chinh phuong trong mang la:\n");
+	printf("\nGia tri doi xung trong mang la:\n");
 	
 	//Xu ly de
-	int S = 0;
+	int demdoixung = 0, doixung;
 
 	for(int i = 0; i < N; i++)
 	{
-		if(sqrt((float) a[i]) == (int)sqrt((float) a[i]))
+		doixung = 0;
+
+		for(int temp = a[i];temp != 0; temp /= 10)
 		{
-			S += a[i];
+			doixung = doixung * 10 + temp % 10;
+		}
+
+		if(doixung == a[i])
+		{
+			demdoixung++;
 			printf("%d  ", a[i]);
 		}
 	}
 
-	printf("\nTong cac gia tri chinh phuong trong mang la: S = %d.\n", S);
+	printf("\n\nSo luong gia tri doi xung trong mang la: %d.", demdoixung);
 
 	_getch();
 	return 0;
 }
-*/
+//
 
 //sai ham
 
-//
+/*
 #define MAX 100
 
 int N, a[MAX];
@@ -77,7 +85,7 @@ int main()
 	nhap();
 	xuat();
 
-	printf("\nCac gia tri chinh phuong trong mang la:\n");
+	printf("\n");
 
 	//Xu ly de
 	Xuly();
@@ -116,20 +124,9 @@ void xuat()
 }
 void Xuly()
 {
-	int S = 0;
 	
-	for(int i = 0; i < N; i++)
-	{
-		if(sqrt((float) a[i]) == (int)sqrt((float) a[i]))
-		{
-			S += a[i];
-			printf("%d  ", a[i]);
-		}
-	}
-
-	printf("\nTong cac gia tri chinh phuong trong mang la: S = %d.\n", S);
 }
-//
+*/
 
 /*
 //Test o visual
@@ -148,16 +145,16 @@ int main()
 	nhap(a, N);
 	xuat(a, N);
 
-	printf("\nCac gia tri chinh phuong trong mang la:\n");
+	printf("\n");
 
 	//Xu ly de
-	Xuly(a, N);
+	Xuly();
 
 	_getch();
 	return 0;
 }
 
-void nhap(float a[], int& N)
+void nhap(int a[], int& N)
 {
 	//So phan tu mang
 	do
@@ -176,7 +173,7 @@ void nhap(float a[], int& N)
 	}
 }
 
-void xuat(float a[], int N)
+void xuat(int a[], int N)
 {
 	//In mang
 	printf("\n");
@@ -186,19 +183,8 @@ void xuat(float a[], int N)
 	}
 }
 
-void Xuly(float a[], int N)
+void Xuly()
 {
-	int S = 0;
-	
-	for(int i = 0; i < N; i++)
-	{
-		if(sqrt((float) a[i]) == (int)sqrt((float) a[i]))
-		{
-			S += a[i];
-			printf("%d  ", a[i]);
-		}
-	}
 
-	printf("\nTong cac gia tri chinh phuong trong mang la: S = %d.\n", S);
 }
 */

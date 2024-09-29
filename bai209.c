@@ -3,8 +3,8 @@
 #include<math.h>
 
 
-//Tính tổng các giá trị chính phương trong mảng một chiều các số
-// nguyên (tongchinhphuong)
+//Tính tổng các giá trị đối xứng trong mảng các số nguyên
+// (tongdoixung)
 
 
 //khong sai ham
@@ -40,21 +40,29 @@ int main()
 	}
 
 
-	printf("\nCac gia tri chinh phuong trong mang la:\n");
+	printf("\n\nCac gia tri doi xung trong mang la:\n");
 	
 	//Xu ly de
-	int S = 0;
+	int tongdoixung = 0, sodoixung = 0;
 
 	for(int i = 0; i < N; i++)
 	{
-		if(sqrt((float) a[i]) == (int)sqrt((float) a[i]))
+		int temp = a[i];
+		sodoixung = 0;
+
+		for(temp; temp != 0; temp /= 10)
 		{
-			S += a[i];
+			sodoixung = sodoixung * 10 + temp % 10;
+		}
+
+		if(sodoixung == a[i])
+		{
+			tongdoixung += a[i];
 			printf("%d  ", a[i]);
 		}
 	}
 
-	printf("\nTong cac gia tri chinh phuong trong mang la: S = %d.\n", S);
+	printf("\n\nTong cac gia tri doi xung trong mang la: S = %d.", tongdoixung);
 
 	_getch();
 	return 0;
@@ -77,7 +85,7 @@ int main()
 	nhap();
 	xuat();
 
-	printf("\nCac gia tri chinh phuong trong mang la:\n");
+	printf("\n\nCac gia tri doi xung trong mang la:\n");
 
 	//Xu ly de
 	Xuly();
@@ -116,18 +124,26 @@ void xuat()
 }
 void Xuly()
 {
-	int S = 0;
-	
+	int tongdoixung = 0, sodoixung = 0;
+
 	for(int i = 0; i < N; i++)
 	{
-		if(sqrt((float) a[i]) == (int)sqrt((float) a[i]))
+		int temp = a[i];
+		sodoixung = 0;
+
+		for(temp; temp != 0; temp /= 10)
 		{
-			S += a[i];
+			sodoixung = sodoixung * 10 + temp % 10;
+		}
+
+		if(sodoixung == a[i])
+		{
+			tongdoixung += a[i];
 			printf("%d  ", a[i]);
 		}
 	}
 
-	printf("\nTong cac gia tri chinh phuong trong mang la: S = %d.\n", S);
+	printf("\n\nTong cac gia tri doi xung trong mang la: S = %d.", tongdoixung);
 }
 //
 
@@ -148,7 +164,7 @@ int main()
 	nhap(a, N);
 	xuat(a, N);
 
-	printf("\nCac gia tri chinh phuong trong mang la:\n");
+	printf("\n\nCac gia tri doi xung trong mang la:\n");
 
 	//Xu ly de
 	Xuly(a, N);
@@ -157,7 +173,7 @@ int main()
 	return 0;
 }
 
-void nhap(float a[], int& N)
+void nhap(int a[], int& N)
 {
 	//So phan tu mang
 	do
@@ -176,7 +192,7 @@ void nhap(float a[], int& N)
 	}
 }
 
-void xuat(float a[], int N)
+void xuat(int a[], int N)
 {
 	//In mang
 	printf("\n");
@@ -186,19 +202,27 @@ void xuat(float a[], int N)
 	}
 }
 
-void Xuly(float a[], int N)
+void Xuly(int a[], int N)
 {
-	int S = 0;
-	
+	int tongdoixung = 0, sodoixung = 0;
+
 	for(int i = 0; i < N; i++)
 	{
-		if(sqrt((float) a[i]) == (int)sqrt((float) a[i]))
+		int temp = a[i];
+		sodoixung = 0;
+
+		for(temp; temp != 0; temp /= 10)
 		{
-			S += a[i];
+			sodoixung = sodoixung * 10 + temp % 10;
+		}
+
+		if(sodoixung == a[i])
+		{
+			tongdoixung += a[i];
 			printf("%d  ", a[i]);
 		}
 	}
 
-	printf("\nTong cac gia tri chinh phuong trong mang la: S = %d.\n", S);
+	printf("\n\nTong cac gia tri doi xung trong mang la: S = %d.", tongdoixung);
 }
 */
