@@ -3,8 +3,16 @@
 #include<math.h>
 
 
-//Hãy đếm số lượng các giá trị lớn nhất có trong mảng một chiều các số
-// thực (demlonnhat)
+//Hãy liệt kê tần suất của các giá trị xuất hiện trong dãy (lietke). Lưu ý
+// mỗi giá trị liệt kê tần suất một lần.
+// Ví dụ:
+// 12 43 12 34 43 12 5
+// Tần suất xuất hiện của các giá trị trong mảng
+// Giá trị 	Tần suất
+// 12 			3
+// 43 			2
+// 34 			1
+// 5 			1
 
 
 //khong sai ham
@@ -14,8 +22,7 @@
 
 int main()
 {
-	int N;
-	float a[MAX];
+	int N, a[MAX];
 
 	//So phan tu mang
 	do
@@ -30,38 +37,39 @@ int main()
 	for(int i = 0; i < N; i++)
 	{
 		printf("Nhap a[%d]: ", i);
-		scanf_s("%f", &a[i]);
+		scanf_s("%d", &a[i]);
 	}
 
 	//In mang
 	printf("\n");
 	for (int i = 0; i < N; i++)
 	{
-		printf("%0.3f  ", a[i]);
+		printf("%d  ", a[i]);
 	}
 
 
-	printf("\n");
+	printf("\nGia tri    Tan suat\n");
 	
 	//Xu ly de
-	float solonnhat = a[0];
-	int demlonnhat = 0;
-
-	for(int i = 1; i < N; i++)
-	{
-		if(a[i] > solonnhat)
-			solonnhat = a[i];
-	}
-
-	printf("\nGia tri lon nhat trong mang la: %0.3f", solonnhat);
-
 	for(int i = 0; i < N; i++)
 	{
-		if(a[i] == solonnhat)
-			demlonnhat++;
-	}
+		int dem = 0;
+		for(int j = 0; j < N; j++)
+		{
+			if(a[i] == a[j])
+			{
+				if( i <= j)
+					dem++;
+				else
+					break;
+			}
+		}
 
-	printf("\n\nSo luong cac gia tri lon nhat trong mang la: %d.", demlonnhat);
+		if(dem != 0)
+		{
+			printf("%-7d    %-8d\n", a[i], dem);
+		}
+	}
 
 	_getch();
 	return 0;
@@ -73,8 +81,7 @@ int main()
 //
 #define MAX 100
 
-int N;
-float a[MAX];
+int N, a[MAX];
 
 void nhap();
 void xuat();
@@ -85,7 +92,7 @@ int main()
 	nhap();
 	xuat();
 
-	printf("\n");
+	printf("\nGia tri    Tan suat\n");
 
 	//Xu ly de
 	Xuly();
@@ -109,7 +116,7 @@ void nhap()
 	for(int i = 0; i < N; i++)
 	{
 		printf("Nhap a[%d]: ", i);
-		scanf_s("%f", &a[i]);
+		scanf_s("%d", &a[i]);
 	}
 }
 
@@ -119,29 +126,30 @@ void xuat()
 	printf("\n");
 	for (int i = 0; i < N; i++)
 	{
-		printf("%0.3f  ", a[i]);
+		printf("%d  ", a[i]);
 	}
 }
 void Xuly()
 {
-	float solonnhat = a[0];
-	int demlonnhat = 0;
-
-	for(int i = 1; i < N; i++)
-	{
-		if(a[i] > solonnhat)
-			solonnhat = a[i];
-	}
-
-	printf("\nGia tri lon nhat trong mang la: %0.3f", solonnhat);
-
 	for(int i = 0; i < N; i++)
 	{
-		if(a[i] == solonnhat)
-			demlonnhat++;
-	}
+		int dem = 0;
+		for(int j = 0; j < N; j++)
+		{
+			if(a[i] == a[j])
+			{
+				if( i <= j)
+					dem++;
+				else
+					break;
+			}
+		}
 
-	printf("\n\nSo luong cac gia tri lon nhat trong mang la: %d.", demlonnhat);
+		if(dem != 0)
+		{
+			printf("%-7d    %-8d\n", a[i], dem);
+		}
+	}
 }
 //
 
@@ -149,11 +157,11 @@ void Xuly()
 //Test o visual
 #define MAX 100
 
-void nhap(float a[], int& N);
+void nhap(int a[], int& N);
 
-void xuat(float a[], int N);
+void xuat(int a[], int N);
 
-void Xuly(float a[], int N);
+void Xuly(int a[], int N);
 
 int main()
 {
@@ -162,7 +170,7 @@ int main()
 	nhap(a, N);
 	xuat(a, N);
 
-	printf("\n");
+	printf("\nGia tri    Tan suat\n");
 
 	//Xu ly de
 	Xuly(a, N);
@@ -171,7 +179,7 @@ int main()
 	return 0;
 }
 
-void nhap(float a[], int& N)
+void nhap(int a[], int& N)
 {
 	//So phan tu mang
 	do
@@ -186,39 +194,40 @@ void nhap(float a[], int& N)
 	for (int i = 0; i < N; i++)
 	{
 		printf("Nhap a[%d]: ", i);
-		scanf_s("%f", &a[i]);
+		scanf_s("%d", &a[i]);
 	}
 }
 
-void xuat(float a[], int N)
+void xuat(int a[], int N)
 {
 	//In mang
 	printf("\n");
 	for (int i = 0; i < N; i++)
 	{
-		printf("%0.3f  ", a[i]);
+		printf("%d  ", a[i]);
 	}
 }
 
-void Xuly(float a[], int N)
+void Xuly(int a[], int N)
 {
-	float solonnhat = a[0];
-	int demlonnhat = 0;
-
-	for(int i = 1; i < N; i++)
-	{
-		if(a[i] > solonnhat)
-			solonnhat = a[i];
-	}
-
-	printf("\nGia tri lon nhat trong mang la: %0.3f", solonnhat);
-
 	for(int i = 0; i < N; i++)
 	{
-		if(a[i] == solonnhat)
-			demlonnhat++;
-	}
+		int dem = 0;
+		for(int j = 0; j < N; j++)
+		{
+			if(a[i] == a[j])
+			{
+				if( i <= j)
+					dem++;
+				else
+					break;
+			}
+		}
 
-	printf("\n\nSo luong cac gia tri lon nhat trong mang la: %d.", demlonnhat);
+		if(dem != 0)
+		{
+			printf("%-7d    %-8d\n", a[i], dem);
+		}
+	}
 }
 */

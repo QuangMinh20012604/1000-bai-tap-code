@@ -3,11 +3,8 @@
 #include<math.h>
 
 
-//Hãy xác định số lượng các phần tử kề nhau mà cả hai số trái dấu nhau
-// (demtraidau)
+//Hãy đếm số lượng các giá trị phân biệt có tỏng mảng (demphanbiet
 
-
-//Cho 1 mang 
 
 //khong sai ham
 
@@ -43,41 +40,35 @@ int main()
 	}
 
 
-	printf("\nCac phan tu ke nhau ma ca hai so trai dau nhau trong mang la:\n");
+	printf("\nCac gia tri phan biet co trong mang la:\n");
 	
 	//Xu ly de
-	int demtraidau = 0;
+	int flat, demphanbiet = 0;
 
 	for(int i = 0; i < N; i++)
 	{
-		if(i == N - 1)
+		flat = 0;
+		
+		for(int j = 0; (j < N); j++)
 		{
-			if(a[i] * a[i - 1] < 0)
-			{
-				printf("%0.3f  ", a[i]);
-				demtraidau++;
+			if(j != i)
+			{	
+				if(a[i] == a[j])
+				{
+					flat++;
+					
+				}
 			}
 		}
-		else if(i == 0)
+		
+		if(flat == 0)
 		{
-			if(a[i] * a[i + 1] < 0)
-			{
-				printf("%0.3f  ", a[i]);
-				demtraidau++;
-			}
+			demphanbiet++;
+			printf("%0.3f  ", a[i]);
 		}
-		else
-		{
-			if((a[i] * a[i + 1] < 0) || (a[i] * a[i - 1] < 0))
-			{
-				printf("%0.3f  ", a[i]);
-				demtraidau++;
-			}
-		}
-
 	}
 
-	printf("\nSo luong cac phan tu ke nhau ma ca hai so trai dau nhau trong mang la: %d.", demtraidau);
+	printf("\n\nSo luong cac gia tri phan biet co trong mang la: %d.", demphanbiet);
 
 	_getch();
 	return 0;
@@ -101,7 +92,7 @@ int main()
 	nhap();
 	xuat();
 
-	printf("\n");
+	printf("\nCac gia tri phan biet co trong mang la:\n");
 
 	//Xu ly de
 	Xuly();
@@ -140,38 +131,32 @@ void xuat()
 }
 void Xuly()
 {
-	int demtraidau = 0;
+	int flat, demphanbiet = 0;
 
 	for(int i = 0; i < N; i++)
 	{
-		if(i == N - 1)
+		flat = 0;
+		
+		for(int j = 0; (j < N); j++)
 		{
-			if(a[i] * a[i - 1] < 0)
-			{
-				printf("%0.3f  ", a[i]);
-				demtraidau++;
+			if(j != i)
+			{	
+				if(a[i] == a[j])
+				{
+					flat++;
+					
+				}
 			}
 		}
-		else if(i == 0)
+		
+		if(flat == 0)
 		{
-			if(a[i] * a[i + 1] < 0)
-			{
-				printf("%0.3f  ", a[i]);
-				demtraidau++;
-			}
+			demphanbiet++;
+			printf("%0.3f  ", a[i]);
 		}
-		else
-		{
-			if((a[i] * a[i + 1] < 0) || (a[i] * a[i - 1] < 0))
-			{
-				printf("%0.3f  ", a[i]);
-				demtraidau++;
-			}
-		}
-
 	}
 
-	printf("\nSo luong cac phan tu ke nhau ma ca hai so trai dau nhau trong mang la: %d.", demtraidau);
+	printf("\n\nSo luong cac gia tri phan biet co trong mang la: %d.", demphanbiet);
 }
 //
 
@@ -193,7 +178,7 @@ int main()
 	nhap(a, N);
 	xuat(a, N);
 
-	printf("\n");
+	printf("\nCac gia tri phan biet co trong mang la:\n");
 
 	//Xu ly de
 	Xuly(a, N);
@@ -233,37 +218,31 @@ void xuat(float a[], int N)
 
 void Xuly(float a[], int N)
 {
-	int demtraidau = 0;
+	int flat, demphanbiet = 0;
 
 	for(int i = 0; i < N; i++)
 	{
-		if(i == N - 1)
+		flat = 0;
+		
+		for(int j = 0; (j < N); j++)
 		{
-			if(a[i] * a[i - 1] < 0)
-			{
-				printf("%0.3f  ", a[i]);
-				demtraidau++;
+			if(j != i)
+			{	
+				if(a[i] == a[j])
+				{
+					flat++;
+					
+				}
 			}
 		}
-		else if(i == 0)
+		
+		if(flat == 0)
 		{
-			if(a[i] * a[i + 1] < 0)
-			{
-				printf("%0.3f  ", a[i]);
-				demtraidau++;
-			}
+			demphanbiet++;
+			printf("%0.3f  ", a[i]);
 		}
-		else
-		{
-			if((a[i] * a[i + 1] < 0) || (a[i] * a[i - 1] < 0))
-			{
-				printf("%0.3f  ", a[i]);
-				demtraidau++;
-			}
-		}
-
 	}
 
-	printf("\nSo luong cac phan tu ke nhau ma ca hai so trai dau nhau trong mang la: %d.", demtraidau);
+	printf("\n\nSo luong cac gia tri phan biet co trong mang la: %d.", demphanbiet);
 }
 */
