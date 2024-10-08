@@ -4,8 +4,10 @@
 #include<math.h>
 
 
-//Hãy xóa tất cả các phần tử trùng nhau trong mảng và chỉ giữ lại duy
-//nhất một phần tử (xoatrung).
+//Hãy xóa tất cả các phần tử có giá trị trùng với x (xoatrungx).
+
+
+//khong sai ham
 
 
 //khong sai ham
@@ -15,7 +17,8 @@
 
 int main()
 {
-	int N, a[MAX];
+	int N;
+	float a[MAX], x;
 
 	//So phan tu mang
 	do
@@ -30,40 +33,42 @@ int main()
 	for(int i = 0; i < N; i++)
 	{
 		printf("Nhap a[%d]: ", i);
-		scanf_s("%d", &a[i]);
+		scanf_s("%f", &a[i]);
 	}
+
+	printf("\nNhap gia tri x: ");
+	scanf_s("%f", &x);
 
 	//In mang
 	printf("\nMang ban dau:\n");
 	for (int i = 0; i < N; i++)
 	{
-		printf("%d  ", a[i]);
+		printf("%0.3f  ", a[i]);
 	}
+
 
 	printf("\n");
 	
 	//Xu ly de
-	
 	for(int i = 0; i < N; i++)
 	{
-		for(int j = i + 1; j < N; j++)
+		if(a[i] == x)
 		{
-			if(a[j] == a[i])
+			
+			for(int j = i; j < N; j++)
 			{
-				for(int k = j; k < N; k++)
-				{
-					a[k] = a[k+1];
-				}
-				N--;
-				j--;
+				a[j] = a[j+1];
 			}
+			N--;	//sau khi xoa phan tu thi tang vi tri cac phan tu sau len truoc 1 dv va giam tong so phan tu co trong mang
+			
+			i--;	//kiem tra lai sau khi gan thi phan tu gan co bang so can xoa khong
 		}
 	}
 
-	printf("\nMang sau khi xoa phan tu trung:\n");
+	printf("\nMang sau khi xoa phan tu co gia tri trung voi x trong mang:\n");
 	for (int i = 0; i < N; i++)
 	{
-		printf("%d  ", a[i]);
+		printf("%0.3f  ", a[i]);
 	}
 
 	_getch();
@@ -76,7 +81,8 @@ int main()
 //
 #define MAX 100
 
-int N, a[MAX];
+int N;
+float a[MAX], x;
 
 void nhap();
 void xuat();
@@ -111,8 +117,11 @@ void nhap()
 	for(int i = 0; i < N; i++)
 	{
 		printf("Nhap a[%d]: ", i);
-		scanf_s("%d", &a[i]);
+		scanf_s("%f", &a[i]);
 	}
+
+	printf("\nNhap gia tri x: ");
+	scanf_s("%f", &x);
 }
 
 void xuat()
@@ -121,31 +130,30 @@ void xuat()
 	printf("\nMang ban dau:\n");
 	for (int i = 0; i < N; i++)
 	{
-		printf("%d  ", a[i]);
+		printf("%0.3f  ", a[i]);
 	}
 }
 void Xuly()
 {
 	for(int i = 0; i < N; i++)
 	{
-		for(int j = i + 1; j < N; j++)
+		if(a[i] == x)
 		{
-			if(a[j] == a[i])
+			
+			for(int j = i; j < N; j++)
 			{
-				for(int k = j; k < N; k++)
-				{
-					a[k] = a[k+1];
-				}
-				N--;
-				j--;
+				a[j] = a[j+1];
 			}
+			N--;	//sau khi xoa phan tu thi tang vi tri cac phan tu sau len truoc 1 dv va giam tong so phan tu co trong mang
+			
+			i--;	//kiem tra lai sau khi gan thi phan tu gan co bang so can xoa khong
 		}
 	}
 
-	printf("\nMang sau khi xoa phan tu trung:\n");
+	printf("\nMang sau khi xoa phan tu co gia tri trung voi x trong mang:\n");
 	for (int i = 0; i < N; i++)
 	{
-		printf("%d  ", a[i]);
+		printf("%0.3f  ", a[i]);
 	}
 }
 //
@@ -154,29 +162,28 @@ void Xuly()
 //Test o visual
 #define MAX 100
 
-void nhap(int a[], int& N);
-
-void xuat(int a[], int N);
-
-void Xuly(int a[], int N);
+void nhap(float	a[], int &N, float &x);
+void xuat(float a[], int N);
+void Xuly(float a[], int N, float x);
 
 int main()
 {
-	int N, a[MAX];
-	
-	nhap(a, N);
+	int N;
+	float a[MAX], x;
+
+	nhap(a, N, x);
 	xuat(a, N);
 
 	printf("\n");
 
 	//Xu ly de
-	Xuly(a, N);
+	Xuly(a, N, x);
 
 	_getch();
 	return 0;
 }
 
-void nhap(int a[], int& N)
+void nhap(float	a[], int& N, float& x)
 {
 	//So phan tu mang
 	do
@@ -191,42 +198,43 @@ void nhap(int a[], int& N)
 	for (int i = 0; i < N; i++)
 	{
 		printf("Nhap a[%d]: ", i);
-		scanf_s("%d", &a[i]);
+		scanf_s("%f", &a[i]);
 	}
+
+	printf("\nNhap gia tri x: ");
+	scanf_s("%f", &x);
 }
 
-void xuat(int a[], int N)
+void xuat(float	a[], int N)
 {
 	//In mang
 	printf("\nMang ban dau:\n");
 	for (int i = 0; i < N; i++)
 	{
-		printf("%d  ", a[i]);
+		printf("%0.3f  ", a[i]);
 	}
 }
-
-void Xuly(int a[], int N)
+void Xuly(float	a[], int N, float x)
 {
-	for(int i = 0; i < N; i++)
+	for (int i = 0; i < N; i++)
 	{
-		for(int j = i + 1; j < N; j++)
+		if (a[i] == x)
 		{
-			if(a[j] == a[i])
+
+			for (int j = i; j < N; j++)
 			{
-				for(int k = j; k < N; k++)
-				{
-					a[k] = a[k+1];
-				}
-				N--;
-				j--;
+				a[j] = a[j + 1];
 			}
+			N--;	//sau khi xoa phan tu thi tang vi tri cac phan tu sau len truoc 1 dv va giam tong so phan tu co trong mang
+
+			i--;	//kiem tra lai sau khi gan thi phan tu gan co bang so can xoa khong
 		}
 	}
 
-	printf("\nMang sau khi xoa phan tu trung:\n");
+	printf("\nMang sau khi xoa phan tu co gia tri trung voi x trong mang:\n");
 	for (int i = 0; i < N; i++)
 	{
-		printf("%d  ", a[i]);
+		printf("%0.3f  ", a[i]);
 	}
 }
 */

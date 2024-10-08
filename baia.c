@@ -169,7 +169,7 @@ void xuat(int a[], int N)
 
 void Xuly(int a[], int N)
 {
-
+	
 }
 */
 

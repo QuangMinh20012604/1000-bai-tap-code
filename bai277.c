@@ -4,8 +4,8 @@
 #include<math.h>
 
 
-//Hãy xóa tất cả các phần tử trùng nhau trong mảng và chỉ giữ lại duy
-//nhất một phần tử (xoatrung).
+//Hãy xóa tất cả các “số nguyên tố” có trong mảng số nguyên
+//(xoanguyento).
 
 
 //khong sai ham
@@ -40,27 +40,41 @@ int main()
 		printf("%d  ", a[i]);
 	}
 
+
 	printf("\n");
 	
 	//Xu ly de
-	
 	for(int i = 0; i < N; i++)
 	{
-		for(int j = i + 1; j < N; j++)
+		int count = 0;
+
+		if(a[i] < 2)
+			count++;
+		else
 		{
-			if(a[j] == a[i])
+			if(a[i] > 2)
 			{
-				for(int k = j; k < N; k++)
+				for(int j = 2; j < a[i];j ++)
 				{
-					a[k] = a[k+1];
+					if(a[i] % j == 0)
+						count++;
 				}
-				N--;
-				j--;
 			}
+		}
+
+		if(count == 0)
+		{
+			for(int j = i; j < N; j++)
+			{
+				a[j] = a[j+1];
+			}
+			N--;
+			i--;
 		}
 	}
 
-	printf("\nMang sau khi xoa phan tu trung:\n");
+	printf("\nMang sau khi xoa cac so nguyen to:\n");
+
 	for (int i = 0; i < N; i++)
 	{
 		printf("%d  ", a[i]);
@@ -128,21 +142,35 @@ void Xuly()
 {
 	for(int i = 0; i < N; i++)
 	{
-		for(int j = i + 1; j < N; j++)
+		int count = 0;
+
+		if(a[i] < 2)
+			count++;
+		else
 		{
-			if(a[j] == a[i])
+			if(a[i] > 2)
 			{
-				for(int k = j; k < N; k++)
+				for(int j = 2; j < a[i];j ++)
 				{
-					a[k] = a[k+1];
+					if(a[i] % j == 0)
+						count++;
 				}
-				N--;
-				j--;
 			}
+		}
+
+		if(count == 0)
+		{
+			for(int j = i; j < N; j++)
+			{
+				a[j] = a[j+1];
+			}
+			N--;
+			i--;
 		}
 	}
 
-	printf("\nMang sau khi xoa phan tu trung:\n");
+	printf("\nMang sau khi xoa cac so nguyen to:\n");
+
 	for (int i = 0; i < N; i++)
 	{
 		printf("%d  ", a[i]);
@@ -209,21 +237,35 @@ void Xuly(int a[], int N)
 {
 	for(int i = 0; i < N; i++)
 	{
-		for(int j = i + 1; j < N; j++)
+		int count = 0;
+
+		if(a[i] < 2)
+			count++;
+		else
 		{
-			if(a[j] == a[i])
+			if(a[i] > 2)
 			{
-				for(int k = j; k < N; k++)
+				for(int j = 2; j < a[i];j ++)
 				{
-					a[k] = a[k+1];
+					if(a[i] % j == 0)
+						count++;
 				}
-				N--;
-				j--;
 			}
+		}
+
+		if(count == 0)
+		{
+			for(int j = i; j < N; j++)
+			{
+				a[j] = a[j+1];
+			}
+			N--;
+			i--;
 		}
 	}
 
-	printf("\nMang sau khi xoa phan tu trung:\n");
+	printf("\nMang sau khi xoa cac so nguyen to:\n");
+
 	for (int i = 0; i < N; i++)
 	{
 		printf("%d  ", a[i]);

@@ -1,11 +1,10 @@
 #include<stdio.h>
-#include<stdio.h>
 #include<conio.h>
 #include<math.h>
 
 
-//Hãy xóa tất cả các phần tử trùng nhau trong mảng và chỉ giữ lại duy
-//nhất một phần tử (xoatrung).
+//Hãy đưa các số chẵn trong mảng về đầu mảng, số lẻ về cuối mảng và
+//các phần tử 0 năm ở giữa (chandaulecuoi).
 
 
 //khong sai ham
@@ -40,27 +39,43 @@ int main()
 		printf("%d  ", a[i]);
 	}
 
+
 	printf("\n");
 	
 	//Xu ly de
-	
+	int chancuoi = 0;
+
+	//sap xep cac so chan ve dau va khong xep phan tu 0
 	for(int i = 0; i < N; i++)
 	{
-		for(int j = i + 1; j < N; j++)
+		if(a[i] % 2 == 0 && a[i] != 0)
 		{
-			if(a[j] == a[i])
+			for(int j = i; j > chancuoi; j--)
 			{
-				for(int k = j; k < N; k++)
-				{
-					a[k] = a[k+1];
-				}
-				N--;
-				j--;
+				int temp = a[j];
+				a[j] = a[j- 1];
+				a[j - 1] = temp;
 			}
+			chancuoi++;
+		}
+	}
+	
+	//sap xep phan tu 0 vao tiep theo cua cac so chan va duoc con lai cac so le o cuoi mang
+	for(int i = 0; i < N; i++)
+	{
+		if(a[i] == 0)
+		{
+			for(int j = i; j > chancuoi; j--)
+			{
+				int temp = a[j];
+				a[j] = a[j- 1];
+				a[j - 1] = temp;
+			}
+			a[chancuoi] = 0;
 		}
 	}
 
-	printf("\nMang sau khi xoa phan tu trung:\n");
+	printf("\nMang da sap xep:\n");
 	for (int i = 0; i < N; i++)
 	{
 		printf("%d  ", a[i]);
@@ -126,23 +141,39 @@ void xuat()
 }
 void Xuly()
 {
+	int chancuoi = 0;
+
+	//sap xep cac so chan ve dau va khong xep phan tu 0
 	for(int i = 0; i < N; i++)
 	{
-		for(int j = i + 1; j < N; j++)
+		if(a[i] % 2 == 0 && a[i] != 0)
 		{
-			if(a[j] == a[i])
+			for(int j = i; j > chancuoi; j--)
 			{
-				for(int k = j; k < N; k++)
-				{
-					a[k] = a[k+1];
-				}
-				N--;
-				j--;
+				int temp = a[j];
+				a[j] = a[j- 1];
+				a[j - 1] = temp;
 			}
+			chancuoi++;
+		}
+	}
+	
+	//sap xep phan tu 0 vao tiep theo cua cac so chan va duoc con lai cac so le o cuoi mang
+	for(int i = 0; i < N; i++)
+	{
+		if(a[i] == 0)
+		{
+			for(int j = i; j > chancuoi; j--)
+			{
+				int temp = a[j];
+				a[j] = a[j- 1];
+				a[j - 1] = temp;
+			}
+			a[chancuoi] = 0;
 		}
 	}
 
-	printf("\nMang sau khi xoa phan tu trung:\n");
+	printf("\nMang da sap xep:\n");
 	for (int i = 0; i < N; i++)
 	{
 		printf("%d  ", a[i]);
@@ -198,7 +229,7 @@ void nhap(int a[], int& N)
 void xuat(int a[], int N)
 {
 	//In mang
-	printf("\nMang ban dau:\n");
+	rintf("\nMang ban dau:\n");
 	for (int i = 0; i < N; i++)
 	{
 		printf("%d  ", a[i]);
@@ -207,23 +238,39 @@ void xuat(int a[], int N)
 
 void Xuly(int a[], int N)
 {
+	int chancuoi = 0;
+
+	//sap xep cac so chan ve dau va khong xep phan tu 0
 	for(int i = 0; i < N; i++)
 	{
-		for(int j = i + 1; j < N; j++)
+		if(a[i] % 2 == 0 && a[i] != 0)
 		{
-			if(a[j] == a[i])
+			for(int j = i; j > chancuoi; j--)
 			{
-				for(int k = j; k < N; k++)
-				{
-					a[k] = a[k+1];
-				}
-				N--;
-				j--;
+				int temp = a[j];
+				a[j] = a[j- 1];
+				a[j - 1] = temp;
 			}
+			chancuoi++;
+		}
+	}
+	
+	//sap xep phan tu 0 vao tiep theo cua cac so chan va duoc con lai cac so le o cuoi mang
+	for(int i = 0; i < N; i++)
+	{
+		if(a[i] == 0)
+		{
+			for(int j = i; j > chancuoi; j--)
+			{
+				int temp = a[j];
+				a[j] = a[j- 1];
+				a[j - 1] = temp;
+			}
+			a[chancuoi] = 0;
 		}
 	}
 
-	printf("\nMang sau khi xoa phan tu trung:\n");
+	printf("\nMang da sap xep:\n");
 	for (int i = 0; i < N; i++)
 	{
 		printf("%d  ", a[i]);

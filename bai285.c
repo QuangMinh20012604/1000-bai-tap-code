@@ -1,11 +1,9 @@
 #include<stdio.h>
-#include<stdio.h>
 #include<conio.h>
 #include<math.h>
 
 
-//Hãy viết hàm nhập mảng một chiều các số thực sao cho khi mảng nhập
-//xong các giá trị trong mảng được sắp giảm dần (không sắp xếp sau khi nhập)
+//Hãy đảo ngược thứ tự các số dương có trong mảng (daoduong)
 
 
 //khong sai ham
@@ -31,23 +29,33 @@ int main()
 	{
 		printf("Nhap a[%d]: ", i);
 		scanf_s("%d", &a[i]);
-		for(int j = 0; j < i; j++)
+	}
+
+	//In mang
+	printf("\nMang ban dau:\n");
+	for (int i = 0; i < N; i++)
+	{
+		printf("%d  ", a[i]);
+	}
+
+
+	printf("\n");
+	
+	//Xu ly de
+	for(int i = 0; i < N; i++)
+	{
+		for(int j = i + 1; j < N; j++)
 		{
-			if(a[i] > a[j])
+			if(a[i] > 0 && a[j] > 0)
 			{
 				int temp = a[i];
-				//gan k bang vi tri lon nhat hien co i. tru dan ve j
-				for(int k = i; k > j; k--)
-				{
-					a[k] = a[k - 1];
-				}
+				a[i] = a[j];
 				a[j] = temp;
 			}
 		}
 	}
 
-	//In mang
-	printf("\nMang:\n");
+	printf("\nMang sau khi dao cac so duong:\n");
 	for (int i = 0; i < N; i++)
 	{
 		printf("%d  ", a[i]);
@@ -67,11 +75,17 @@ int N, a[MAX];
 
 void nhap();
 void xuat();
+void Xuly();
 
 int main()
 {
 	nhap();
 	xuat();
+
+	printf("\n");
+
+	//Xu ly de
+	Xuly();
 
 	_getch();
 	return 0;
@@ -93,32 +107,39 @@ void nhap()
 	{
 		printf("Nhap a[%d]: ", i);
 		scanf_s("%d", &a[i]);
-		for(int j = 0; j < i; j++)
-		{
-			if(a[i] > a[j])
-			{
-				int temp = a[i];
-				//gan k bang vi tri lon nhat hien co i. tru dan ve j
-				for(int k = i; k > j; k--)
-				{
-					a[k] = a[k - 1];
-				}
-				a[j] = temp;
-			}
-		}
 	}
 }
 
 void xuat()
 {
 	//In mang
-	printf("\nMang:\n");
+	printf("\nMang ban dau:\n");
 	for (int i = 0; i < N; i++)
 	{
 		printf("%d  ", a[i]);
 	}
 }
+void Xuly()
+{
+	for(int i = 0; i < N; i++)
+	{
+		for(int j = i + 1; j < N; j++)
+		{
+			if(a[i] > 0 && a[j] > 0)
+			{
+				int temp = a[i];
+				a[i] = a[j];
+				a[j] = temp;
+			}
+		}
+	}
 
+	printf("\nMang sau khi dao cac so duong:\n");
+	for (int i = 0; i < N; i++)
+	{
+		printf("%d  ", a[i]);
+	}
+}
 //
 
 /*
@@ -129,12 +150,19 @@ void nhap(int a[], int& N);
 
 void xuat(int a[], int N);
 
+void Xuly(int a[], int N);
+
 int main()
 {
 	int N, a[MAX];
 	
 	nhap(a, N);
 	xuat(a, N);
+
+	printf("\n");
+
+	//Xu ly de
+	Xuly(a, N);
 
 	_getch();
 	return 0;
@@ -147,37 +175,47 @@ void nhap(int a[], int& N)
 	{
 		printf("\nNhap so phan tu cua mang: ");
 		scanf_s("%d", &N);
-		if(N < 1 || N > MAX)
+		if (N < 1 || N > MAX)
 			printf("\nSo phan tu khong hop le. Xin kiem tra lai !");
-	}while(N < 1 || N > MAX);
-	
+	} while (N < 1 || N > MAX);
+
 	//Gán phan tu mang
-	for(int i = 0; i < N; i++)
+	for (int i = 0; i < N; i++)
 	{
 		printf("Nhap a[%d]: ", i);
 		scanf_s("%d", &a[i]);
-		for(int j = 0; j < i; j++)
-		{
-			if(a[i] > a[j])
-			{
-				int temp = a[i];
-				//gan k bang vi tri lon nhat hien co i. tru dan ve j
-				for(int k = i; k > j; k--)
-				{
-					a[k] = a[k - 1];
-				}
-				a[j] = temp;
-			}
-		}
 	}
 }
 
 void xuat(int a[], int N)
 {
 	//In mang
-	printf("\nMang:\n");
+	printf("\nMang ban dau:\n");
 	for (int i = 0; i < N; i++)
 	{
 		printf("%d  ", a[i]);
 	}
 }
+
+void Xuly(int a[], int N)
+{
+	for(int i = 0; i < N; i++)
+	{
+		for(int j = i + 1; j < N; j++)
+		{
+			if(a[i] > 0 && a[j] > 0)
+			{
+				int temp = a[i];
+				a[i] = a[j];
+				a[j] = temp;
+			}
+		}
+	}
+
+	printf("\nMang sau khi dao cac so duong:\n");
+	for (int i = 0; i < N; i++)
+	{
+		printf("%d  ", a[i]);
+	}
+}
+*/

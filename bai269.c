@@ -262,7 +262,7 @@ void xuat(int a[], int N)
 	scanf_s("%d", &x);
 }
 
-void Xuly(int a[], int)
+void Xuly(int a[], int N)
 {
 	//xap sep mang tang dan khi chua them x
 	for(int i = 0; i < N - 1; i++)

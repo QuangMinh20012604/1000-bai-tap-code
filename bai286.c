@@ -1,11 +1,9 @@
 #include<stdio.h>
-#include<stdio.h>
 #include<conio.h>
 #include<math.h>
 
 
-//Hãy xóa tất cả các phần tử trùng nhau trong mảng và chỉ giữ lại duy
-//nhất một phần tử (xoatrung).
+//Hãy “dịch trái xoay vòng” các phần tử trong mảng (dichtrai).
 
 
 //khong sai ham
@@ -15,7 +13,7 @@
 
 int main()
 {
-	int N, a[MAX];
+	int N, a[MAX], k;
 
 	//So phan tu mang
 	do
@@ -33,6 +31,9 @@ int main()
 		scanf_s("%d", &a[i]);
 	}
 
+	printf("\nNhap so lan dich trai k: ");
+	scanf_s("%d", &k);
+
 	//In mang
 	printf("\nMang ban dau:\n");
 	for (int i = 0; i < N; i++)
@@ -40,27 +41,25 @@ int main()
 		printf("%d  ", a[i]);
 	}
 
+
 	printf("\n");
 	
 	//Xu ly de
-	
-	for(int i = 0; i < N; i++)
+	int dichtrai = k;
+
+	while(dichtrai--)
 	{
-		for(int j = i + 1; j < N; j++)
+		int temp = a[0];
+		
+		for(int i = 0; i < N - 1; i++)
 		{
-			if(a[j] == a[i])
-			{
-				for(int k = j; k < N; k++)
-				{
-					a[k] = a[k+1];
-				}
-				N--;
-				j--;
-			}
+			a[i] = a[i + 1];
 		}
+
+		a[N-1] = temp;
 	}
 
-	printf("\nMang sau khi xoa phan tu trung:\n");
+	printf("\nMang sau khi dich trai xoay vong %d lan:\n", k);
 	for (int i = 0; i < N; i++)
 	{
 		printf("%d  ", a[i]);
@@ -76,7 +75,7 @@ int main()
 //
 #define MAX 100
 
-int N, a[MAX];
+int N, a[MAX], k;
 
 void nhap();
 void xuat();
@@ -113,6 +112,9 @@ void nhap()
 		printf("Nhap a[%d]: ", i);
 		scanf_s("%d", &a[i]);
 	}
+
+	printf("\nNhap so lan dich trai k: ");
+	scanf_s("%d", &k);
 }
 
 void xuat()
@@ -126,23 +128,20 @@ void xuat()
 }
 void Xuly()
 {
-	for(int i = 0; i < N; i++)
+	int dichtrai = k;
+	while(dichtrai--)
 	{
-		for(int j = i + 1; j < N; j++)
+		int temp = a[0];
+		
+		for(int i = 0; i < N - 1; i++)
 		{
-			if(a[j] == a[i])
-			{
-				for(int k = j; k < N; k++)
-				{
-					a[k] = a[k+1];
-				}
-				N--;
-				j--;
-			}
+			a[i] = a[i + 1];
 		}
+
+		a[N-1] = temp;
 	}
 
-	printf("\nMang sau khi xoa phan tu trung:\n");
+	printf("\nMang sau khi dich trai xoay vong %d lan:\n", k);
 	for (int i = 0; i < N; i++)
 	{
 		printf("%d  ", a[i]);
@@ -154,29 +153,29 @@ void Xuly()
 //Test o visual
 #define MAX 100
 
-void nhap(int a[], int& N);
+void nhap(int a[], int& N, int &k);
 
 void xuat(int a[], int N);
 
-void Xuly(int a[], int N);
+void Xuly(int a[], int N, int k);
 
 int main()
 {
-	int N, a[MAX];
+	int N, a[MAX] , k;
 	
-	nhap(a, N);
+	nhap(a, N, k);
 	xuat(a, N);
 
 	printf("\n");
 
 	//Xu ly de
-	Xuly(a, N);
+	Xuly(a, N, k);
 
 	_getch();
 	return 0;
 }
 
-void nhap(int a[], int& N)
+void nhap(int a[], int& N, int &k)
 {
 	//So phan tu mang
 	do
@@ -193,6 +192,9 @@ void nhap(int a[], int& N)
 		printf("Nhap a[%d]: ", i);
 		scanf_s("%d", &a[i]);
 	}
+
+	printf("\nNhap so lan dich trai k: ");
+	scanf_s("%d", &k);
 }
 
 void xuat(int a[], int N)
@@ -205,25 +207,22 @@ void xuat(int a[], int N)
 	}
 }
 
-void Xuly(int a[], int N)
+void Xuly(int a[], int N, int k)
 {
-	for(int i = 0; i < N; i++)
+	int dichtrai = k;
+	while(dichtrai--)
 	{
-		for(int j = i + 1; j < N; j++)
+		int temp = a[0];
+		
+		for(int i = 0; i < N - 1; i++)
 		{
-			if(a[j] == a[i])
-			{
-				for(int k = j; k < N; k++)
-				{
-					a[k] = a[k+1];
-				}
-				N--;
-				j--;
-			}
+			a[i] = a[i + 1];
 		}
+
+		a[N-1] = temp;
 	}
 
-	printf("\nMang sau khi xoa phan tu trung:\n");
+	printf("\nMang sau khi dich trai xoay vong %d lan:\n", k);
 	for (int i = 0; i < N; i++)
 	{
 		printf("%d  ", a[i]);

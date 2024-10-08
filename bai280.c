@@ -4,8 +4,7 @@
 #include<math.h>
 
 
-//Hãy xóa tất cả các phần tử trùng nhau trong mảng và chỉ giữ lại duy
-//nhất một phần tử (xoatrung).
+//Hãy đưa số một về đầu mảng (motvedau).
 
 
 //khong sai ham
@@ -40,27 +39,39 @@ int main()
 		printf("%d  ", a[i]);
 	}
 
+
 	printf("\n");
 	
 	//Xu ly de
-	
+	int motvedau = 0;
+	//dua ve bang cach dao vi tri voi nhau
+	// for(int i = 0; i < N; i++)
+	// {
+	// 	if(a[i] == 1)
+	// 	{
+	// 		a[i] = a[motvedau];
+	// 		a[motvedau] = 1;
+	// 		motvedau++;
+	// 	}
+	// }
+
+
+	//dua ve bang cach dich chuyen dan ve dau
 	for(int i = 0; i < N; i++)
 	{
-		for(int j = i + 1; j < N; j++)
+		if(a[i] == 1)
 		{
-			if(a[j] == a[i])
+			for(int j = i; j > 0; j--)
 			{
-				for(int k = j; k < N; k++)
-				{
-					a[k] = a[k+1];
-				}
-				N--;
-				j--;
+				int temp = a[j];
+				a[j] = a[j- 1];
+				a[j - 1] = temp;
 			}
+			motvedau++;
 		}
 	}
 
-	printf("\nMang sau khi xoa phan tu trung:\n");
+	printf("\nMang sau khi sap xep:\n");
 	for (int i = 0; i < N; i++)
 	{
 		printf("%d  ", a[i]);
@@ -118,7 +129,7 @@ void nhap()
 void xuat()
 {
 	//In mang
-	printf("\nMang ban dau:\n");
+	printf("\n");
 	for (int i = 0; i < N; i++)
 	{
 		printf("%d  ", a[i]);
@@ -126,23 +137,35 @@ void xuat()
 }
 void Xuly()
 {
+	int motvedau = 0;
+	//dua ve bang cach dao vi tri voi nhau
+	// for(int i = 0; i < N; i++)
+	// {
+	// 	if(a[i] == 1)
+	// 	{
+	// 		a[i] = a[motvedau];
+	// 		a[motvedau] = 1;
+	// 		motvedau++;
+	// 	}
+	// }
+
+
+	//dua ve bang cach dich chuyen dan ve dau
 	for(int i = 0; i < N; i++)
 	{
-		for(int j = i + 1; j < N; j++)
+		if(a[i] == 1)
 		{
-			if(a[j] == a[i])
+			for(int j = i; j > 0; j--)
 			{
-				for(int k = j; k < N; k++)
-				{
-					a[k] = a[k+1];
-				}
-				N--;
-				j--;
+				int temp = a[j];
+				a[j] = a[j- 1];
+				a[j - 1] = temp;
 			}
+			motvedau++;
 		}
 	}
 
-	printf("\nMang sau khi xoa phan tu trung:\n");
+	printf("\nMang sau khi sap xep:\n");
 	for (int i = 0; i < N; i++)
 	{
 		printf("%d  ", a[i]);
@@ -198,7 +221,7 @@ void nhap(int a[], int& N)
 void xuat(int a[], int N)
 {
 	//In mang
-	printf("\nMang ban dau:\n");
+	printf("\n");
 	for (int i = 0; i < N; i++)
 	{
 		printf("%d  ", a[i]);
@@ -207,23 +230,35 @@ void xuat(int a[], int N)
 
 void Xuly(int a[], int N)
 {
+	int motvedau = 0;
+	//dua ve bang cach dao vi tri voi nhau
+	// for(int i = 0; i < N; i++)
+	// {
+	// 	if(a[i] == 1)
+	// 	{
+	// 		a[i] = a[motvedau];
+	// 		a[motvedau] = 1;
+	// 		motvedau++;
+	// 	}
+	// }
+
+
+	//dua ve bang cach dich chuyen dan ve dau
 	for(int i = 0; i < N; i++)
 	{
-		for(int j = i + 1; j < N; j++)
+		if(a[i] == 1)
 		{
-			if(a[j] == a[i])
+			for(int j = i; j > 0; j--)
 			{
-				for(int k = j; k < N; k++)
-				{
-					a[k] = a[k+1];
-				}
-				N--;
-				j--;
+				int temp = a[j];
+				a[j] = a[j- 1];
+				a[j - 1] = temp;
 			}
+			motvedau++;
 		}
 	}
 
-	printf("\nMang sau khi xoa phan tu trung:\n");
+	printf("\nMang sau khi sap xep:\n");
 	for (int i = 0; i < N; i++)
 	{
 		printf("%d  ", a[i]);

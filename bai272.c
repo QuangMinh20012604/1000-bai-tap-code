@@ -4,8 +4,8 @@
 #include<math.h>
 
 
-//Hãy xóa tất cả các phần tử trùng nhau trong mảng và chỉ giữ lại duy
-//nhất một phần tử (xoatrung).
+//Hãy xóa tất cả các số lớn nhất trong mảng các số thực (xoalonnhat).
+
 
 
 //khong sai ham
@@ -15,7 +15,8 @@
 
 int main()
 {
-	int N, a[MAX];
+	int N, k;
+	float a[MAX];
 
 	//So phan tu mang
 	do
@@ -30,41 +31,49 @@ int main()
 	for(int i = 0; i < N; i++)
 	{
 		printf("Nhap a[%d]: ", i);
-		scanf_s("%d", &a[i]);
+		scanf_s("%f", &a[i]);
 	}
 
 	//In mang
 	printf("\nMang ban dau:\n");
 	for (int i = 0; i < N; i++)
 	{
-		printf("%d  ", a[i]);
+		printf("%0.3f  ", a[i]);
 	}
+
 
 	printf("\n");
 	
 	//Xu ly de
-	
+	float a_max = a[0];
+
+	for(int i = 1; i < N; i++)
+	{
+		if(a[i] > a_max)
+			a_max = a[i];
+	}
+
 	for(int i = 0; i < N; i++)
 	{
-		for(int j = i + 1; j < N; j++)
+		if(a[i] == a_max)
 		{
-			if(a[j] == a[i])
+			
+			for(int j = i; j < N; j++)
 			{
-				for(int k = j; k < N; k++)
-				{
-					a[k] = a[k+1];
-				}
-				N--;
-				j--;
+				a[j] = a[j+1];
 			}
+			N--;	//sau khi xoa phan tu thi tang vi tri cac phan tu sau len truoc 1 dv va giam tong so phan tu co trong mang
+			
+			i--;	//kiem tra lai sau khi gan thi phan tu gan co bang so can xoa khong
 		}
 	}
 
-	printf("\nMang sau khi xoa phan tu trung:\n");
+	printf("\nMang sau khi xoa phan tu co chi so k trong mang:\n");
 	for (int i = 0; i < N; i++)
 	{
-		printf("%d  ", a[i]);
+		printf("%0.3f  ", a[i]);
 	}
+
 
 	_getch();
 	return 0;
@@ -76,7 +85,8 @@ int main()
 //
 #define MAX 100
 
-int N, a[MAX];
+int N, k;
+float a[MAX];
 
 void nhap();
 void xuat();
@@ -111,7 +121,7 @@ void nhap()
 	for(int i = 0; i < N; i++)
 	{
 		printf("Nhap a[%d]: ", i);
-		scanf_s("%d", &a[i]);
+		scanf_s("%f", &a[i]);
 	}
 }
 
@@ -121,31 +131,38 @@ void xuat()
 	printf("\nMang ban dau:\n");
 	for (int i = 0; i < N; i++)
 	{
-		printf("%d  ", a[i]);
+		printf("%0.3f  ", a[i]);
 	}
 }
 void Xuly()
 {
+	float a_max = a[0];
+
+	for(int i = 1; i < N; i++)
+	{
+		if(a[i] > a_max)
+			a_max = a[i];
+	}
+
 	for(int i = 0; i < N; i++)
 	{
-		for(int j = i + 1; j < N; j++)
+		if(a[i] == a_max)
 		{
-			if(a[j] == a[i])
+			
+			for(int j = i; j < N; j++)
 			{
-				for(int k = j; k < N; k++)
-				{
-					a[k] = a[k+1];
-				}
-				N--;
-				j--;
+				a[j] = a[j+1];
 			}
+			N--;	//sau khi xoa phan tu thi tang vi tri cac phan tu sau len truoc 1 dv va giam tong so phan tu co trong mang
+			
+			i--;	//kiem tra lai sau khi gan thi phan tu gan co bang so can xoa khong
 		}
 	}
 
-	printf("\nMang sau khi xoa phan tu trung:\n");
+	printf("\nMang sau khi xoa phan tu co chi so k trong mang:\n");
 	for (int i = 0; i < N; i++)
 	{
-		printf("%d  ", a[i]);
+		printf("%0.3f  ", a[i]);
 	}
 }
 //
@@ -154,16 +171,17 @@ void Xuly()
 //Test o visual
 #define MAX 100
 
-void nhap(int a[], int& N);
+void nhap(float a[], int& N);
 
-void xuat(int a[], int N);
+void xuat(float a[], int N);
 
-void Xuly(int a[], int N);
+void Xuly(float a[], int N);
 
 int main()
 {
-	int N, a[MAX];
-	
+	int N;
+	float a[MAX];
+
 	nhap(a, N);
 	xuat(a, N);
 
@@ -176,26 +194,26 @@ int main()
 	return 0;
 }
 
-void nhap(int a[], int& N)
+void nhap(float a[], int& N)
 {
 	//So phan tu mang
 	do
 	{
 		printf("\nNhap so phan tu cua mang: ");
 		scanf_s("%d", &N);
-		if (N < 1 || N > MAX)
+		if(N < 1 || N > MAX)
 			printf("\nSo phan tu khong hop le. Xin kiem tra lai !");
-	} while (N < 1 || N > MAX);
-
+	}while(N < 1 || N > MAX);
+	
 	//Gán phan tu mang
-	for (int i = 0; i < N; i++)
+	for(int i = 0; i < N; i++)
 	{
 		printf("Nhap a[%d]: ", i);
-		scanf_s("%d", &a[i]);
+		scanf_s("%f", &a[i]);
 	}
 }
 
-void xuat(int a[], int N)
+void xuat(float a[], int N)
 {
 	//In mang
 	printf("\nMang ban dau:\n");
@@ -205,28 +223,35 @@ void xuat(int a[], int N)
 	}
 }
 
-void Xuly(int a[], int N)
+void Xuly(float a[], int N)
 {
+	float a_max = a[0];
+
+	for(int i = 1; i < N; i++)
+	{
+		if(a[i] > a_max)
+			a_max = a[i];
+	}
+
 	for(int i = 0; i < N; i++)
 	{
-		for(int j = i + 1; j < N; j++)
+		if(a[i] == a_max)
 		{
-			if(a[j] == a[i])
+			
+			for(int j = i; j < N; j++)
 			{
-				for(int k = j; k < N; k++)
-				{
-					a[k] = a[k+1];
-				}
-				N--;
-				j--;
+				a[j] = a[j+1];
 			}
+			N--;	//sau khi xoa phan tu thi tang vi tri cac phan tu sau len truoc 1 dv va giam tong so phan tu co trong mang
+			
+			i--;	//kiem tra lai sau khi gan thi phan tu gan co bang so can xoa khong
 		}
 	}
 
-	printf("\nMang sau khi xoa phan tu trung:\n");
+	printf("\nMang sau khi xoa phan tu co chi so k trong mang:\n");
 	for (int i = 0; i < N; i++)
 	{
-		printf("%d  ", a[i]);
+		printf("%0.3f  ", a[i]);
 	}
 }
 */

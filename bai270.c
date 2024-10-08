@@ -182,9 +182,4 @@ void xuat(int a[], int N)
 		printf("%d  ", a[i]);
 	}
 }
-
-void Xuly(int a[], int N)
-{
-
-}
 */

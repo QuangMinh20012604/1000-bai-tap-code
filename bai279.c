@@ -4,8 +4,8 @@
 #include<math.h>
 
 
-//Hãy xóa tất cả các phần tử trùng nhau trong mảng và chỉ giữ lại duy
-//nhất một phần tử (xoatrung).
+//Hãy xóa tất cả các phần tử có tần suất xuất hiện trong mảng nhiều hơn
+//một lần (xoatrungtatcar).
 
 
 //khong sai ham
@@ -128,21 +128,35 @@ void Xuly()
 {
 	for(int i = 0; i < N; i++)
 	{
+		int count = 1;
 		for(int j = i + 1; j < N; j++)
 		{
 			if(a[j] == a[i])
-			{
-				for(int k = j; k < N; k++)
-				{
-					a[k] = a[k+1];
-				}
-				N--;
-				j--;
-			}
+				count++;
 		}
+
+		if(count > 1)
+		{
+			int soxoa = a[i];
+
+			for(int j = i; j < N; j++)
+			{
+				if(a[j] == soxoa)
+				{
+					for(int k = j; k < N; k++)
+					{
+						a[k] = a[k+1];
+					}
+					N--;
+					j--;
+				}
+			}
+			i--;
+		}
+
 	}
 
-	printf("\nMang sau khi xoa phan tu trung:\n");
+	printf("\nMang sau khi xoa cac phan tu co tan suat xuat hien nhieu hon 1:\n");
 	for (int i = 0; i < N; i++)
 	{
 		printf("%d  ", a[i]);
@@ -205,25 +219,39 @@ void xuat(int a[], int N)
 	}
 }
 
-void Xuly(int a[], int N)
+void Xuly(int a[], int i)
 {
 	for(int i = 0; i < N; i++)
 	{
+		int count = 1;
 		for(int j = i + 1; j < N; j++)
 		{
 			if(a[j] == a[i])
-			{
-				for(int k = j; k < N; k++)
-				{
-					a[k] = a[k+1];
-				}
-				N--;
-				j--;
-			}
+				count++;
 		}
+
+		if(count > 1)
+		{
+			int soxoa = a[i];
+
+			for(int j = i; j < N; j++)
+			{
+				if(a[j] == soxoa)
+				{
+					for(int k = j; k < N; k++)
+					{
+						a[k] = a[k+1];
+					}
+					N--;
+					j--;
+				}
+			}
+			i--;
+		}
+
 	}
 
-	printf("\nMang sau khi xoa phan tu trung:\n");
+	printf("\nMang sau khi xoa cac phan tu co tan suat xuat hien nhieu hon 1:\n");
 	for (int i = 0; i < N; i++)
 	{
 		printf("%d  ", a[i]);
