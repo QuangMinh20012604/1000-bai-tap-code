@@ -1,9 +1,11 @@
 #include<stdio.h>
+#include<stdio.h>
 #include<conio.h>
 #include<math.h>
 
 
-//Liệt kê tất cả các mảng con (lietkecon) trong mảng một chiều các số nguyên.
+//Liệt kê tất cả các mảng con có độ dài lớn hơn 2 trong mảng một chiều
+//các số nguyên (conlonhonhai).
 
 
 //khong sai ham
@@ -48,9 +50,7 @@ int main()
 	for(int i = 0; i < N; i++)
 	{
 		//for() de tang so luong cua mang con
-		//Chieudaimangcon = 1 + i, +i de khong tao cac mang rong
-		
-		for(chieudaimangcon = i+1; chieudaimangcon <= N; chieudaimangcon++)
+		for(chieudaimangcon = 3 + i; chieudaimangcon <= N; chieudaimangcon++)
 		{
 			printf("{");
 			for(int j = i; j < chieudaimangcon; j++)
@@ -61,8 +61,6 @@ int main()
 		}
 		printf("\n");
 	}
-
-	printf("{ }");
 
 	_getch();
 	return 0;
@@ -101,9 +99,9 @@ void nhap()
 	{
 		printf("\nNhap so phan tu cua mang: ");
 		scanf_s("%d", &N);
-		if(N < 1 || N > MAX)
-			printf("\nSo phan tu khong hop le. Xin kiem tra lai !");
-	}while(N < 1 || N > MAX);
+		if(N < 3 || N > MAX)
+			printf("\nSo phan tu phai lon hon 3. Xin kiem tra lai !");
+	}while(N < 3 || N > MAX);
 	
 	//Gán phan tu mang
 	for(int i = 0; i < N; i++)
@@ -130,9 +128,7 @@ void Xuly()
 	for(int i = 0; i < N; i++)
 	{
 		//for() de tang so luong cua mang con
-		//Chieudaimangcon = 1 + i, +i de khong tao cac mang rong
-		
-		for(chieudaimangcon = i+1; chieudaimangcon <= N; chieudaimangcon++)
+		for(chieudaimangcon = 3 + i; chieudaimangcon <= N; chieudaimangcon++)
 		{
 			printf("{");
 			for(int j = i; j < chieudaimangcon; j++)
@@ -143,8 +139,6 @@ void Xuly()
 		}
 		printf("\n");
 	}
-
-	printf("{ }");
 }
 //
 
@@ -211,9 +205,7 @@ void Xuly(int a[], int N)
 	for(int i = 0; i < N; i++)
 	{
 		//for() de tang so luong cua mang con
-		//Chieudaimangcon = 1 + i, +i de khong tao cac mang rong
-		
-		for(chieudaimangcon = i+1; chieudaimangcon <= N; chieudaimangcon++)
+		for(chieudaimangcon = 3 + i; chieudaimangcon <= N; chieudaimangcon++)
 		{
 			printf("{");
 			for(int j = i; j < chieudaimangcon; j++)
@@ -224,7 +216,5 @@ void Xuly(int a[], int N)
 		}
 		printf("\n");
 	}
-
-	printf("{ }");
 }
 */

@@ -3,7 +3,8 @@
 #include<math.h>
 
 
-//Liệt kê tất cả các mảng con (lietkecon) trong mảng một chiều các số nguyên.
+//Hãy xuất mảng theo yêu cầu: các phần tử chẵn nằm trên một hàng, các
+//phần tử lẻ nằm ở hàng tiếp theo (chanlehaihang)
 
 
 //khong sai ham
@@ -42,27 +43,23 @@ int main()
 	printf("\n");
 	
 	//Xu ly de
-	int chieudaimangcon;
-
-	printf("\nCac mang con:\n");
+	printf("\nMang sau khi sap xep:\n");
+	
 	for(int i = 0; i < N; i++)
 	{
-		//for() de tang so luong cua mang con
-		//Chieudaimangcon = 1 + i, +i de khong tao cac mang rong
-		
-		for(chieudaimangcon = i+1; chieudaimangcon <= N; chieudaimangcon++)
+		if(a[i] % 2 == 0)
 		{
-			printf("{");
-			for(int j = i; j < chieudaimangcon; j++)
-			{
-				printf(" %d ", a[j]);
-			}
-			printf("}  ");
+			printf("%d  ", a[i]);		
 		}
-		printf("\n");
 	}
-
-	printf("{ }");
+	printf("\n");
+	for(int i = 0; i < N; i++)
+	{
+		if(a[i] % 2 != 0)
+		{
+			printf("%d  ", a[i]);		
+		}
+	}
 
 	_getch();
 	return 0;
@@ -124,27 +121,23 @@ void xuat()
 }
 void Xuly()
 {
-	int chieudaimangcon;
-
-	printf("\nCac mang con:\n");
+	printf("\nMang sau khi sap xep:\n");
+	
 	for(int i = 0; i < N; i++)
 	{
-		//for() de tang so luong cua mang con
-		//Chieudaimangcon = 1 + i, +i de khong tao cac mang rong
-		
-		for(chieudaimangcon = i+1; chieudaimangcon <= N; chieudaimangcon++)
+		if(a[i] % 2 == 0)
 		{
-			printf("{");
-			for(int j = i; j < chieudaimangcon; j++)
-			{
-				printf(" %d ", a[j]);
-			}
-			printf("}  ");
+			printf("%d  ", a[i]);		
 		}
-		printf("\n");
 	}
-
-	printf("{ }");
+	printf("\n");
+	for(int i = 0; i < N; i++)
+	{
+		if(a[i] % 2 != 0)
+		{
+			printf("%d  ", a[i]);		
+		}
+	}
 }
 //
 
@@ -205,26 +198,22 @@ void xuat(int a[], int N)
 
 void Xuly(int a[], int N)
 {
-	int chieudaimangcon;
-
-	printf("\nCac mang con:\n");
+	printf("\nMang sau khi sap xep:\n");
+	
 	for(int i = 0; i < N; i++)
 	{
-		//for() de tang so luong cua mang con
-		//Chieudaimangcon = 1 + i, +i de khong tao cac mang rong
-		
-		for(chieudaimangcon = i+1; chieudaimangcon <= N; chieudaimangcon++)
+		if(a[i] % 2 == 0)
 		{
-			printf("{");
-			for(int j = i; j < chieudaimangcon; j++)
-			{
-				printf(" %d ", a[j]);
-			}
-			printf("}  ");
+			printf("%d  ", a[i]);		
 		}
-		printf("\n");
 	}
-
-	printf("{ }");
+	printf("\n");
+	for(int i = 0; i < N; i++)
+	{
+		if(a[i] % 2 != 0)
+		{
+			printf("%d  ", a[i]);		
+		}
+	}
 }
 */
